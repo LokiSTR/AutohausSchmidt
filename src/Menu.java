@@ -55,7 +55,7 @@ public class Menu {
     }   
 
     public void createKunde(){
-        System.out.println("Create Käufer");
+        System.out.println("Bitte Daten des Kunden eingeben: ");
         System.out.println("Vorname");
         String choicevorname = get_Scanner().nextLine();
         System.out.println("Nachname");
@@ -65,9 +65,10 @@ public class Menu {
         System.out.println("Telefon");
         String createtelefon = get_Scanner().nextLine();
 
-        Kunde k1 = new Kunde(choicevorname, choicenachname, choiceadresse,createtelefon);
+        Kunde k = new Kunde(choicevorname, choicenachname, choiceadresse, createtelefon);
 
-        System.out.println(k1);
+        startMenu();
+        System.out.println("Der neue Kunde heißt " + k.getVorname() + " " + k.getNachname());
     }
 
     public void createVerkaeufer(){
@@ -89,7 +90,5 @@ public class Menu {
     }
     public Scanner get_Scanner() {
         return _Scanner;
-    }
-
-    
+    }  
 }
