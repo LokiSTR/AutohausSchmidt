@@ -37,4 +37,8 @@ public class App {
     public static Auto[] getAllAutos(){
         return _autos;
     }
+
+    public static void addVerkaeufer(Verkaeufer verkaeufer){
+        _verkaeufer[0] = verkaeufer;
+    }
 }
