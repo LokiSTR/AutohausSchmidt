@@ -17,9 +17,12 @@ public class Menu {
         System.out.println("2 Neuer Kunde");
         System.out.println("3 Neuer Auto");
         System.out.println("4 Neuer Verkäufer");
-        
+        System.out.println("5 Neues Autohaus");
+        System.out.println("6 Neue Autoliste");
+               
         String choice = get_Scanner().nextLine();
         
+        System.out.println("Deine Wahl ist: " + choice);
     
         if(choice.equals("1")){
             System.out.print("Neuer Verkauf noch nicht da");
@@ -33,11 +36,17 @@ public class Menu {
         else if(choice.equals("4")){
             createVerkaeufer();
         }
-        else {
-            System.out.println("Bitte nur 1, 2, 3 oder 4 eingeben");
+        else if(choice.equals("5")){
+            createAutoMenu();
         }
-    
-    
+        else if(choice.equals("6")){
+            showAutos();
+        }
+        else {
+            System.out.println("Bitte nur 1, 2, 3, 4, 5 oder 6 eingeben");
+        }
+        startMenu();
+        
     }
 
     public void createAutos(){
@@ -50,13 +59,17 @@ public class Menu {
         String choicebaujahr = get_Scanner().nextLine(); 
         
         Auto a1 = new Auto(choicemarke, choicemodell, choicebaujahr);
+        //ARRAY BEISPIEL plus minus von trampe
+        //Auto[] autos = new Auto[8]; das ist dann [1, 2, 3, 4, 5, 6, 7, 8]
+        // die 1 würde dann beispielsweise auf ein auto a1 zeigen, wenn man das so eingibt
+        //mit integer wäre int[]
 
         System.out.println(a1);
     }   
 
     public void createKunde(){
         System.out.println("Bitte Daten des Kunden eingeben: ");
-        System.out.println("Vorname");
+        System.out.println("Vorname: ");
         String choicevorname = get_Scanner().nextLine();
         System.out.println("Nachname");
         String choicenachname = get_Scanner().nextLine();
@@ -90,5 +103,36 @@ public class Menu {
     }
     public Scanner get_Scanner() {
         return _Scanner;
-    }  
+    }
+    
+    public void showAutos(){
+        //foreach schleife
+        for(Auto auto : App.getAllAutos()){
+            //wenn dieses auto nicht null ist geben wird die marke aus
+            if(auto != null){
+                System.out.println(auto.getMarke());
+            }
+        }
+    }
+
+    public void createAutoMenu(){
+        System.out.println("Create new Auto");
+        //man ruft einfach immer wieder den scanner auf
+        System.out.print("Marke: ");
+        String marke = get_Scanner().nextLine();
+        System.out.print("Modell: ");
+        String modell = get_Scanner().nextLine();
+        System.out.print("Baujahr: ");
+        String baujahr = get_Scanner().nextLine();
+
+        //etstelltes auto mit den strings aus app.java
+        App.addAuto(new Auto(marke, modell, baujahr));
+    
+        System.out.println(App.getAllAutos());
+
+        // nach ende der erstellung des autos soll einfach wieder an den anfang gesprungen werden
+
+        startMenu();
+    
+    }
 }
