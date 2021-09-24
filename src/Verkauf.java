@@ -3,7 +3,9 @@ public class Verkauf {
     Kunde _kunde;
     int _preis;
     Verkaeufer _verkaeufer;
+    
 
+    
     public Verkauf(Auto auto, Verkaeufer verkaeufer, Kunde kunde){
         this.setAuto(auto);
         this.setVerkaeufer(verkaeufer);

@@ -25,7 +25,7 @@ public class Menu {
         System.out.println("Deine Wahl ist: " + choice);
     
         if(choice.equals("1")){
-            System.out.print("Neuer Verkauf noch nicht da");
+            createVerkaeufeMenu();
         }
         else if(choice.equals("2")){
             createKunde();
@@ -49,8 +49,23 @@ public class Menu {
         
     }
 
+    public void createVerkaeufeMenu(){
+        int i = 0;
+        System.out.println("Bitte wählen Sie ein Auto aus: ");
+        for(Auto auto : App.getAllAutos()){
+            if(auto != null){
+                System.out.println(i + " - " + auto.getMarke() + " " + auto.getModell());
+                i++;
+            }
+        }
+        String car_choice = get_Scanner().next();
+        int car_index = Integer.valueOf(car_choice);
+
+        System.out.println(App.getAllAutos()[car_index]);
+    }
+
+
     public void createAutos(){
-        System.out.println("Create Car");
         System.out.println("Marke");
         String choicemarke = get_Scanner().nextLine();
         System.out.println("Modell");

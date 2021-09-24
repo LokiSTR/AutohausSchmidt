@@ -3,12 +3,14 @@ public class App {
     static Auto[] _autos;
     static Kunde[] _kunden;
     static Verkaeufer[] _verkaeufer;
+    static Verkauf[] _verkaeufe;
 
     public static void main(String[] args) throws Exception {
         //Initialisieren von _autos
         _autos = new Auto[8];
         _kunden = new Kunde[8];
         _verkaeufer = new Verkaeufer[8];
+        _verkaeufe = new Verkauf[8];
 
         _autos[0] = new Auto("Ford", "Mustang", "1292");
         _autos[1] = new Auto("Toyota", "Supre", "1999");
@@ -31,8 +33,7 @@ public class App {
     }
 
 
-
-    //Eine generelle Methode, damit man nicht drei mal das gleiche dort stehen hat. In den zeilen danach wird es immerr für auto, kunde, verkäufer eingesetzt
+    //Eine generelle Methode, dam   it man nicht drei mal das gleiche dort stehen hat. In den zeilen danach wird es immerr für auto, kunde, verkäufer eingesetzt
     public static void addObject(Object ele, Object[] array){
         int i = 0;
         for (Object a : array){
@@ -72,4 +73,5 @@ public class App {
     public static Verkaeufer[] getAllVerkaeufers(){
         return _verkaeufer;
     }
+
 }
