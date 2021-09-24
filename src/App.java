@@ -30,15 +30,46 @@ public class App {
 
     }
 
+
+
+    //Eine generelle Methode, damit man nicht drei mal das gleiche dort stehen hat. In den zeilen danach wird es immerr für auto, kunde, verkäufer eingesetzt
+    public static void addObject(Object ele, Object[] array){
+        int i = 0;
+        for (Object a : array){
+            //wenn die stelle im array null ist kann man dort ein neues objekt erstellen
+            if(a == null){
+                array[i] = ele;
+                //damit man nicht ein objekt 8 mal erzeugt
+                break;
+            }
+            //wird erhöht
+            i++;
+        }
+    }
+    
+
+
+
+
+
     public static void addAuto(Auto auto){
-        _autos[0] = auto;
+        addObject(auto, getAllAutos());
+    }
+    public static void addKunde(Kunde kunde){
+        addObject(kunde, getAllKundes());
+    }
+    public static void addVerkaeufer(Verkaeufer verkaeufer){
+        addObject(verkaeufer, getAllVerkaeufers());
     }
 
+    //ermöglicht array
     public static Auto[] getAllAutos(){
         return _autos;
     }
-
-    public static void addVerkaeufer(Verkaeufer verkaeufer){
-        _verkaeufer[0] = verkaeufer;
+    public static Kunde[] getAllKundes(){
+        return _kunden;
+    }
+    public static Verkaeufer[] getAllVerkaeufers(){
+        return _verkaeufer;
     }
 }

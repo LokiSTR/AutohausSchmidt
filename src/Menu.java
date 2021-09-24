@@ -17,8 +17,8 @@ public class Menu {
         System.out.println("2 Neuer Kunde");
         System.out.println("3 Neuer Auto");
         System.out.println("4 Neuer Verkäufer");
-        System.out.println("5 Neues Autohaus");
-        System.out.println("6 Neue Autoliste");
+        System.out.println("5 Neues Auto");
+        System.out.println("6 Autoliste abrufen");
                
         String choice = get_Scanner().nextLine();
         
